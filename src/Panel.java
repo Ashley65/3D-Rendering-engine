@@ -1,4 +1,4 @@
-import org.jetbrains.annotations.NotNull;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -104,54 +104,6 @@ class Panel{
 
 
 
-    }
-}
-
-class Vectex{
-    double x; // x coordinate
-    double y; // y coordinate
-    double z; // z coordinate
-
-    Vectex(double x, double y, double z){
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
-}
-
-class Triangle{
-    Vectex[] vectex = new Vectex[3];
-    Color color;
-    Triangle(Vectex v1, Vectex v2, Vectex v3, Color color){
-        vectex[0] = v1;
-        vectex[1] = v2;
-        vectex[2] = v3;
-        this.color = color;
-    }
-}
-
-class Matrix{
-    double[] Values;
-    Matrix(double[] Values){
-        this.Values = Values;
-    }
-    Matrix multiply(Matrix diff){
-        double[] result = new double[9];
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++){
-                for (int k = 0; k < 3; k++){
-                    result[i * 3 + j] += this.Values[i * 3 + k] * diff.Values[k * 3 + j];
-                    
-        
-                }
-            }
-        }
-        return new Matrix(result);
-    }
-    Vectex transform(@NotNull Vectex trans){
-        return new Vectex(trans.x * Values[0] + trans.y * Values[3] + trans.z * Values[6],
-                trans.x * Values[1] + trans.y * Values[4] + trans.z * Values[7],
-                trans.x * Values[2] + trans.y * Values[5] + trans.z * Values[8]);
     }
 }
 
